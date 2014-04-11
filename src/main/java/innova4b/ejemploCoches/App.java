@@ -12,7 +12,7 @@ public class App
     	EmpleadoRepo empleadoRepo = context.getBean("empleadoRepo", EmpleadoRepo.class);
     	CocheRepo cocheRepo = context.getBean("cocheRepo", CocheRepo.class);
     	Empleado empleado = empleadoRepo.get(2);
-    	Coche coche = cocheRepo.get(10);
+    	Coche coche = cocheRepo.get(11);
     	System.out.println(reservaService.reserva(empleado, coche));
     }
 }

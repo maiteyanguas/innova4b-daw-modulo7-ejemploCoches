@@ -14,10 +14,9 @@ public class CocheRepo {
 	public Coche get(int id) {
 		return jdbcTemplate.query("select * from coche where id="+id, new CocheMapper()).get(0);            		
 	}
-	
-	public void updateEmpleado(Coche coche , Empleado empleado){
-		String query = "update coche set empleado_id="+empleado.getId()+" where id="+coche.getId();
-		jdbcTemplate.update(query);
+
+	public boolean isCocheReservado(Coche coche) {
+		return jdbcTemplate.query("select * from empleado where coche_id="+coche.getId(), new EmpleadoMapper()).size()>0;   
 	}
 
 }

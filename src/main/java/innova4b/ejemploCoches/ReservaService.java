@@ -15,11 +15,9 @@ public class ReservaService {
 
 	public String reserva(Empleado empleado, Coche coche) {
 		String resultado = "KO";
-		if (coche.getEmpleadoId()==0 && empleado.getCocheId()==0){
-			coche.setEmpleadoId(empleado.getId());
+		if (!cocheRepo.isCocheReservado(coche) && empleado.getCocheId()==0){
 			empleado.setCocheId(coche.getId());
 			empleadoRepo.updateCoche(coche, empleado);
-			cocheRepo.updateEmpleado(coche, empleado);
 			resultado = "OK";
 		}
 		return resultado;

@@ -52,22 +52,21 @@ public class ReservaServiceTest {
 	}
 	
 	@Test
-	public void reserva_asigna_el_coche_al_empleado_y_el_empleado_al_coche() {
+	public void reserva_asigna_el_coche_al_empleado() {
 		reservaService.reserva(empleado, coche);
 		
 		assertEquals(ID_COCHE, empleado.getCocheId());
-		verify(cocheRepoMock).updateEmpleado(coche, empleado);
 		verify(empleadoRepoMock).updateCoche(coche, empleado);
 	}
 
 	@Test
 	public void reserva_no_ejecuta_la_reserva_si_el_coche_esta_ya_reservado() {
-		coche.setEmpleadoId(89);
+		when(cocheRepoMock.isCocheReservado(coche)).thenReturn(true);
 		
 		reservaService.reserva(empleado, coche);
 		
-		assertEquals(0,empleado.getCocheId());
-		verify(cocheRepoMock,never()).updateEmpleado(coche, empleado);
+		assertEquals(0, empleado.getCocheId());
+		verify(empleadoRepoMock,never()).updateCoche(coche, empleado);
 	}
 	
 	@Test
@@ -76,7 +75,6 @@ public class ReservaServiceTest {
 		
 		reservaService.reserva(empleado, coche);
 		
-		assertEquals(0,coche.getEmpleadoId());
-		verify(cocheRepoMock,never()).updateEmpleado(coche, empleado);
+		verify(empleadoRepoMock,never()).updateCoche(coche, empleado);
 	}
 }

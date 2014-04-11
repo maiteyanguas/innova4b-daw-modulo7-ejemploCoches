@@ -12,7 +12,6 @@ public class CocheMapper implements RowMapper<Coche> {
 		coche.setId(rs.getInt("id"));
 		coche.setMarca(rs.getString("marca"));
 		coche.setModelo(rs.getString("modelo"));
-		coche.setEmpleadoId(rs.getInt("empleado_id"));
 		return coche;
 	}
 

@@ -21,8 +21,7 @@ public class EmpleadoRepoTest {
 	public void get_obtiene_los_datos_de_un_empleado() {
 		Empleado empleado = empleadoRepo.get(1);
 		assertEquals("Maite", empleado.getNombre());
-		assertEquals("Yanguas", empleado.getApellido());
-		
+		assertEquals("Yanguas", empleado.getApellido());		
 	}
 
 }

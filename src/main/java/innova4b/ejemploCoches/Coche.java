@@ -5,7 +5,6 @@ public class Coche {
 	private int id;
 	private String marca;
 	private String modelo;
-	private int empleadoId;
 	
 	public int getId() {
 		return id;
@@ -25,12 +24,5 @@ public class Coche {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public int getEmpleadoId() {
-		return empleadoId;
-	}
-	public void setEmpleadoId(int empleadoId) {
-		this.empleadoId = empleadoId;
-	}
-
 	
 }
