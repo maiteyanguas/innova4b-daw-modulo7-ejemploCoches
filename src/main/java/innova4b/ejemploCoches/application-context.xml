@@ -7,19 +7,9 @@
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <bean id="reservaService" class="innova4b.ejemploCoches.ReservaService">
-        <property name="cocheRepo" ref ="cocheRepo"/>
-        <property name="empleadoRepo" ref ="empleadoRepo"/>
-    </bean>
-	 
-	<bean id="cocheRepo" class="innova4b.ejemploCoches.CocheRepo">
-    	<constructor-arg ref="dataSource"/>   
-    </bean>
-    
-    <bean id="empleadoRepo" class="innova4b.ejemploCoches.EmpleadoRepo">
-    	<constructor-arg ref="dataSource"/>   
-    </bean>
-    
+	<context:annotation-config/>
+   	<context:component-scan base-package="innova4b.ejemploCoches"></context:component-scan>
+
     <bean id="dataSource"
     class="org.springframework.jdbc.datasource.DriverManagerDataSource">
        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>

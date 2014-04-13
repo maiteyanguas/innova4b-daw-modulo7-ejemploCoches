@@ -1,8 +1,14 @@
 package innova4b.ejemploCoches;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ReservaService {
 	
+	@Autowired
 	CocheRepo cocheRepo;
+	@Autowired
 	EmpleadoRepo empleadoRepo;
 	
 	public void setCocheRepo(CocheRepo cocheRepo) {
